@@ -12,29 +12,6 @@ A modern, responsive fitness website built with React, TypeScript, Tailwind CSS,
 - **Smooth Animations**: Engaging transitions and hover effects
 - **SEO Ready**: Semantic HTML structure
 
-## 📁 Project Structure
-
-```
-src/
-├── components/
-│   ├── layout/
-│   │   ├── Navbar.tsx          # Main navigation with mobile menu
-│   │   └── Footer.tsx          # Footer with links and contact info
-│   └── ui/                     # shadcn/ui components (you already have these)
-├── pages/
-│   ├── Home.tsx                # Hero, features preview, stats
-│   ├── About.tsx               # Company story, mission, values
-│   ├── Features.tsx            # Services and programs offered
-│   ├── Team.tsx                # Trainer profiles
-│   ├── Testimonials.tsx        # Client success stories
-│   ├── Blog.tsx                # Articles and fitness tips
-│   └── Contact.tsx             # Contact form and info
-├── types/
-│   └── index.ts                # TypeScript type definitions
-├── App.tsx                     # Main app with routing
-└── index.css                   # Global styles with fitness theme
-```
-
 ## 🚀 Setup Instructions
 
 ### Prerequisites
@@ -71,7 +48,7 @@ VITE_API_BE_URL=http://localhost:3000
 npm run dev
 ```
 
-Your website should now be running at `http://localhost:5173`
+website live link:- `https://fitness-website-zcnl.onrender.com`
 
 ## 📱 Pages Overview
 
