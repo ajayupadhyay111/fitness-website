@@ -1,0 +1,263 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* =========================
+   THEME TOKENS (Tailwind v4)
+   ========================= */
+@theme {
+  /* Radius */
+  --radius: 0.5rem;
+
+  /* Light theme colors */
+  --color-background: hsl(0 0% 100%);
+  --color-foreground: hsl(222 47% 11%);
+
+  --color-card: hsl(0 0% 100%);
+  --color-card-foreground: hsl(222 47% 11%);
+
+  --color-popover: hsl(0 0% 100%);
+  --color-popover-foreground: hsl(222 47% 11%);
+
+  --color-primary: hsl(186 100% 37%);
+  --color-primary-foreground: hsl(0 0% 100%);
+
+  --color-secondary: hsl(222 47% 11%);
+  --color-secondary-foreground: hsl(0 0% 100%);
+
+  --color-muted: hsl(210 40% 96%);
+  --color-muted-foreground: hsl(215 16% 47%);
+
+  --color-accent: hsl(24 95% 53%);
+  --color-accent-foreground: hsl(0 0% 100%);
+
+  --color-destructive: hsl(0 84% 60%);
+  --color-destructive-foreground: hsl(0 0% 100%);
+
+  --color-border: hsl(214 32% 91%);
+  --color-input: hsl(214 32% 91%);
+  --color-ring: hsl(186 100% 37%);
+
+  /* Charts */
+  --color-chart-1: hsl(186 100% 37%);
+  --color-chart-2: hsl(24 95% 53%);
+  --color-chart-3: hsl(142 71% 45%);
+  --color-chart-4: hsl(262 83% 58%);
+  --color-chart-5: hsl(340 82% 52%);
+}
+
+/* =========================
+   DARK MODE THEME
+   ========================= */
+.dark {
+  --color-background: hsl(222 47% 11%);
+  --color-foreground: hsl(0 0% 98%);
+
+  --color-card: hsl(222 47% 11%);
+  --color-card-foreground: hsl(0 0% 98%);
+
+  --color-popover: hsl(222 47% 11%);
+  --color-popover-foreground: hsl(0 0% 98%);
+
+  --color-primary: hsl(186 100% 37%);
+  --color-primary-foreground: hsl(0 0% 100%);
+
+  --color-secondary: hsl(217 33% 17%);
+  --color-secondary-foreground: hsl(0 0% 98%);
+
+  --color-muted: hsl(217 33% 17%);
+  --color-muted-foreground: hsl(215 20% 65%);
+
+  --color-accent: hsl(24 95% 53%);
+  --color-accent-foreground: hsl(0 0% 100%);
+
+  --color-destructive: hsl(0 62% 30%);
+  --color-destructive-foreground: hsl(0 0% 98%);
+
+  --color-border: hsl(217 33% 17%);
+  --color-input: hsl(217 33% 17%);
+  --color-ring: hsl(186 100% 37%);
+
+  --color-chart-1: hsl(186 100% 47%);
+  --color-chart-2: hsl(24 95% 63%);
+  --color-chart-3: hsl(142 71% 55%);
+  --color-chart-4: hsl(262 83% 68%);
+  --color-chart-5: hsl(340 82% 62%);
+}
+
+/* =========================
+   BASE STYLES
+   ========================= */
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/60 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary;
+  }
+}
+
+/* =========================
+   UTILITIES
+   ========================= */
+@layer utilities {
+  .gradient-primary {
+    background: linear-gradient(
+      135deg,
+      var(--color-primary) 100%,
+      var(--color-accent) 0%
+    );
+  }
+
+  .gradient-secondary {
+    background: linear-gradient(
+      135deg,
+      var(--color-secondary) 0%,
+      var(--color-primary) 100%
+    );
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(
+      135deg,
+      var(--color-primary) 0%,
+      var(--color-accent) 100%
+    );
+  }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  .container-padding {
+    @apply px-4 md:px-6 lg:px-8;
+  }
+
+  .btn-scale {
+    @apply transition-transform duration-200 active:scale-95;
+  }
+}
+
+/* =========================
+   ANIMATIONS
+   ========================= */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.animate-slideInLeft {
+  animation: slideInLeft 0.6s ease-out;
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.6s ease-out;
+}
+
+/* =========================
+   FITNESS UTILITIES
+   ========================= */
+.stat-card {
+  @apply bg-card rounded-lg p-6 shadow-md border-l-4 border-primary;
+}
+
+.feature-icon {
+  @apply w-12 h-12 rounded-full flex items-center justify-center bg-primary/10 text-primary;
+}
+
+.section-title {
+  @apply text-3xl md:text-4xl lg:text-5xl font-bold text-secondary mb-4;
+}
+
+.section-subtitle {
+  @apply text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto;
+}
+
+.button-gradient {
+  @apply border border-primary text-primary hover:bg-primary hover:border-primary hover:text-white bg-white px-8 py-6;
+}
+
+
+.animated-border {
+  background: linear-gradient(
+    120deg,
+    transparent,
+    var(--primary),
+    transparent
+  );
+  background-size: 300% 300%;
+  animation: borderMove 4s linear infinite;
+}
+
+@keyframes borderMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 300% 50%;
+  }
+}
